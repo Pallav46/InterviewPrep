@@ -207,6 +207,30 @@ public class MyHashMap<K, V> {
         return false; // Key not found
     }
 
+    /**
+     * Get a set of all keys in the HashMap
+     * 
+     * Process:
+     * 1. Create a new ArrayList to store keys
+     * 2. Iterate through all buckets
+     * 3. Add each key to the list
+     * 
+     * @return List containing all keys in the HashMap
+     * Time Complexity: O(n) - visits all elements
+     */
+    public java.util.List<K> keySet() {
+        java.util.List<K> keys = new java.util.ArrayList<>();
+        
+        // Iterate through all buckets and collect keys
+        for (int i = 0; i < N; i++) {
+            for (Node node : buckets[i]) {
+                keys.add(node.key); // Add key to the list
+            }
+        }
+        
+        return keys; // Return list of all keys
+    }
+
     // ==================== RESIZING OPERATIONS ====================
     
     /**
@@ -252,7 +276,7 @@ public class MyHashMap<K, V> {
      * Time Complexity: O(1)
      */
     public int size() {
-        return n; // Return the number of key-value pairs
+        return n;
     }
 
     /**
@@ -261,7 +285,7 @@ public class MyHashMap<K, V> {
      * Time Complexity: O(1)
      */
     public boolean isEmpty() {
-        return n == 0; // Check if the map is empty
+        return n == 0;
     }
 
     /**
@@ -306,14 +330,14 @@ public class MyHashMap<K, V> {
     // ==================== DEMONSTRATION AND TESTING ====================
     
     /**
-     * Main method to demonstrate HashMap functionality
-     * Tests all major operations with various data types
+     * Main method to demonstrate core HashMap functionality for interviews
+     * Tests essential operations that are commonly asked in coding interviews
      */
     public static void main(String[] args) {
         // Create HashMap with initial capacity of 4
         MyHashMap<String, Integer> map = new MyHashMap<>(4);
         
-        System.out.println("=== HashMap Demonstration ===");
+        System.out.println("=== Core HashMap Operations for Interviews ===");
         
         // Test put operation
         System.out.println("\n1. Testing PUT operations:");
@@ -322,8 +346,9 @@ public class MyHashMap<K, V> {
         map.put("orange", 7);
         map.put("grape", 2);
         System.out.println("After adding fruits: " + map);
-        System.out.println("Size: " + map.size());
-          // Test get operation
+        System.out.println("Size after adding 4 elements: " + map.size());
+        
+        // Test get operation
         System.out.println("\n2. Testing GET operations:");
         System.out.println("apple: " + map.get("apple"));
         System.out.println("banana: " + map.get("banana"));
@@ -332,38 +357,55 @@ public class MyHashMap<K, V> {
         // Test containsKey operation
         System.out.println("\n3. Testing CONTAINS_KEY operations:");
         System.out.println("Contains 'apple': " + map.containsKey("apple"));
-        System.out.println("Contains 'banana': " + map.containsKey("banana"));
         System.out.println("Contains 'kiwi': " + map.containsKey("kiwi"));
-        System.out.println("Contains 'grape': " + map.containsKey("grape"));
+
+        // Test keySet operation
+        System.out.println("\n4. Testing KEY_SET operations:");
+        System.out.println("All keys: " + map.keySet());
 
         // Test update operation
-        System.out.println("\n4. Testing UPDATE operations:");
+        System.out.println("\n5. Testing UPDATE operations:");
         map.put("apple", 10); // Update existing key
         System.out.println("After updating apple: " + map);
-        System.out.println("Still contains 'apple': " + map.containsKey("apple"));
+        System.out.println("Updated apple to 10: " + map.get("apple"));
 
         // Test remove operation
-        System.out.println("\n5. Testing REMOVE operations:");
+        System.out.println("\n6. Testing REMOVE operations:");
         map.remove("banana");
         System.out.println("After removing banana: " + map);
         System.out.println("Contains 'banana' after removal: " + map.containsKey("banana"));
-        System.out.println("Size: " + map.size());
+        System.out.println("Size after removal: " + map.size());
 
-        // Test resize trigger
-        System.out.println("\n6. Testing automatic RESIZE:");
+        // Test resize trigger (load factor > 0.75)
+        System.out.println("\n7. Testing automatic RESIZE:");
+        System.out.println("Current size: " + map.size() + ", Adding more elements to trigger resize...");
         map.put("mango", 4);
         map.put("pineapple", 6);
         map.put("strawberry", 8); // This should trigger resize
         System.out.println("After adding more items: " + map);
-        System.out.println("Size: " + map.size());
-        System.out.println("Contains 'strawberry' after resize: " + map.containsKey("strawberry"));
+        System.out.println("Size after adding more items: " + map.size());
+        System.out.println("All keys after resize: " + map.keySet());
 
-        // Test utility methods
-        System.out.println("\n7. Testing utility methods:");
-        System.out.println("Is empty: " + map.isEmpty());
+        // Test clear operation
+        System.out.println("\n8. Testing CLEAR operations:");
+        System.out.println("Before clear - Size: " + map.size() + ", Is empty: " + map.isEmpty());
         map.clear();
-        System.out.println("After clear - Is empty: " + map.isEmpty());
-        System.out.println("Contains 'apple' after clear: " + map.containsKey("apple"));
-        System.out.println("Size after clear: " + map.size());
+        System.out.println("After clear: " + map);
+        System.out.println("After clear - Size: " + map.size() + ", Is empty: " + map.isEmpty());
+
+        // Test edge cases
+        System.out.println("\n9. Testing edge cases:");
+        System.out.println("Getting from empty map: " + map.get("nonexistent"));
+        System.out.println("Keys from empty map: " + map.keySet());
+        
+        // Test with different data types
+        System.out.println("\n10. Testing with Integer keys:");
+        MyHashMap<Integer, String> intMap = new MyHashMap<>(2);
+        intMap.put(1, "One");
+        intMap.put(2, "Two");
+        intMap.put(3, "Three");
+        System.out.println("Integer map: " + intMap);
+        System.out.println("Integer map keys: " + intMap.keySet());
+        System.out.println("Size: " + intMap.size());
     }
 }
