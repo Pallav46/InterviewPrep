@@ -18,6 +18,8 @@ InterviewPrep/
 ├── README.md
 ├── AVLTree/
 │   └── AVLTree.java
+├── BinarySearch/
+│   └── BinarySearch.java
 ├── BinarySearchTree/
 │   └── BinarySearchTree.java
 ├── DynamicProgramming/
@@ -28,6 +30,7 @@ InterviewPrep/
 │   ├── Dijkstra.java
 │   ├── DisjointSet.java
 │   ├── DS_MST.java
+│   ├── GraphTraversal.java
 │   ├── Main.java
 │   ├── MST.java
 │   └── Prim.java
@@ -35,7 +38,8 @@ InterviewPrep/
 │   └── MyHashMap.java
 ├── Heap/
 │   ├── HeapSort.java
-│   └── MaxHeap.java
+│   ├── MaxHeap.java
+│   └── MinHeap.java
 ├── HR_Round/
 │   ├── HrQuestions.md
 │   ├── Interview_Preparation_Responses.docx
@@ -44,6 +48,8 @@ InterviewPrep/
 │   └── LinkedList.java
 ├── Queue/
 │   └── Queue.java
+├── RecursionBacktracking/
+│   └── RecursionBacktracking.java
 ├── SegmentTree/
 │   ├── Lazy_ST.java
 │   └── SegmentTree.java
@@ -100,6 +106,12 @@ InterviewPrep/
   - Step-by-step visualization
   - **Time Complexity**: O(n log n), **Space**: O(1) for in-place
 
+- **`MinHeap.java`** - Complete binary min-heap implementation
+  - Insert, Delete, GetMin operations
+  - Decrease key and delete at index operations
+  - Priority queue applications
+  - **Time Complexity**: Insert/Delete O(log n), GetMin O(1)
+
 ### 🗂️ **HashMap Implementation**
 - **`MyHashMap.java`** - Custom hash table with separate chaining
   - Generic key-value support
@@ -108,7 +120,31 @@ InterviewPrep/
   - Operations: put, get, remove, containsKey
   - **Time Complexity**: O(1) average, O(n) worst case
 
+### 🔍 **Search Algorithms**
+
+#### **Binary Search**
+- **`BinarySearch.java`** - Comprehensive binary search implementations
+  - Iterative and recursive approaches
+  - Advanced variations: first/last occurrence, insertion position
+  - Problem solving: rotated arrays, peak finding, square root
+  - **Time Complexity**: O(log n), **Space**: O(1) iterative, O(log n) recursive
+
+### 🔄 **Recursion and Backtracking**
+- **`RecursionBacktracking.java`** - Complete recursion and backtracking collection
+  - Basic recursion: factorial, fibonacci, power, GCD
+  - String operations: reverse, palindrome check
+  - Backtracking problems: permutations, combinations, subsets
+  - Advanced puzzles: N-Queens, Sudoku solver, word search
+  - **Time Complexity**: Varies by problem (factorial: O(n), N-Queens: O(N!))
+
 ### 🌳 **Tree Data Structures**
+
+#### **Binary Search Tree**
+- **`BinarySearchTree.java`** - Full BST implementation with advanced operations
+  - Insert, delete, search, traversals (in/pre/post/level order)
+  - Advanced operations: kth smallest, LCA, range queries
+  - Tree validation and visualization
+  - **Time Complexity**: O(h) where h is height (O(log n) balanced, O(n) skewed)
 
 #### **AVL Tree (Self-Balancing BST)**
 - **`AVLTree.java`** - Height-balanced binary search tree
@@ -138,6 +174,17 @@ InterviewPrep/
   - **Time Complexity**: O(m) where m is string length
 
 ### 🌐 **Graph Algorithms**
+
+#### **Graph Traversal**
+- **`GraphTraversal.java`** - BFS and DFS implementations
+  - Breadth-First Search (BFS) - Level-order traversal
+  - Depth-First Search (DFS) - Recursive and iterative versions
+  - Shortest path in unweighted graphs (BFS)
+  - Connected components detection
+  - Cycle detection in undirected graphs
+  - Path finding between vertices
+  - **Time Complexity**: O(V + E) for both BFS and DFS
+  - **Space Complexity**: O(V) for visited array and auxiliary structures
 
 #### **Shortest Path Algorithms**
 - **`Dijkstra.java`** - Single-source shortest path
@@ -195,11 +242,18 @@ InterviewPrep/
 
 | Data Structure | Common Questions | Implementation |
 |---------------|------------------|----------------|
-| **Heap** | Kth largest element, Priority Queue, Heap Sort | `MaxHeap.java`, `HeapSort.java` |
+| **Binary Search** | Search in rotated array, First/last occurrence, Peak finding | `BinarySearch.java` |
+| **Recursion/Backtracking** | N-Queens, Sudoku, Permutations, Combinations | `RecursionBacktracking.java` |
+| **Heap** | Kth largest element, Priority Queue, Heap Sort | `MaxHeap.java`, `MinHeap.java`, `HeapSort.java` |
 | **HashMap** | Design HashMap, Handle collisions, Load factor | `MyHashMap.java` |
+| **Binary Search Tree** | Tree traversals, Validate BST, LCA, Kth smallest | `BinarySearchTree.java` |
 | **AVL Tree** | Self-balancing trees, Rotations, Height balance | `AVLTree.java` |
 | **Graph** | Shortest path, MST, Connected components | `Dijkstra.java`, `Prim.java`, `DisjointSet.java` |
+| **Graph Traversal** | BFS, DFS, Path finding, Cycle detection | `GraphTraversal.java` |
 | **Tree** | Range queries, Prefix search, Tree traversal | `SegmentTree.java`, `Trie.java`, `FenwickTree.java` |
+| **Linked List** | Cycle detection, Merge lists, Reverse, Nth from end | `LinkedList.java` |
+| **Sorting** | Merge sort, Quick sort, Counting sort, Radix sort | `SortingAlgorithms.java` |
+| **Dynamic Programming** | Knapsack, LCS, LIS, Coin change, Edit distance | `DynamicProgramming.java` |
 
 ### 🧠 **Study Approach**
 
@@ -221,12 +275,13 @@ InterviewPrep/
 
 ### Time Complexities Quick Reference
 
-| Operation | Heap | HashMap | AVL Tree | Segment Tree | Trie | Graph (Dijkstra) |
-|-----------|------|---------|----------|--------------|------|-------------------|
-| **Insert** | O(log n) | O(1) avg | O(log n) | O(log n) | O(m) | - |
-| **Search** | O(n) | O(1) avg | O(log n) | O(log n) | O(m) | O((V+E) log V) |
-| **Delete** | O(log n) | O(1) avg | O(log n) | O(log n) | O(m) | - |
-| **Update** | O(log n) | O(1) avg | O(log n) | O(log n) | - | - |
+| Operation | Binary Search | Heap | HashMap | BST/AVL | Segment Tree | Trie | Recursion Examples |
+|-----------|---------------|------|---------|---------|--------------|------|-------------------|
+| **Search** | O(log n) | O(n) | O(1) avg | O(log n) | O(log n) | O(m) | O(n) factorial |
+| **Insert** | - | O(log n) | O(1) avg | O(log n) | O(log n) | O(m) | O(2^n) fibonacci |
+| **Delete** | - | O(log n) | O(1) avg | O(log n) | O(log n) | O(m) | O(n!) permutations |
+| **Peak Find** | O(log n) | O(1) get | - | - | - | - | O(4^n) word search |
+| **Graph Traversal** | - | - | - | - | - | - | O(V+E) BFS/DFS |
 
 *where n = number of elements, m = string length, V = vertices, E = edges*
 
