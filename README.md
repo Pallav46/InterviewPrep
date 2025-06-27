@@ -18,6 +18,10 @@ InterviewPrep/
 ├── README.md
 ├── AVLTree/
 │   └── AVLTree.java
+├── BinarySearchTree/
+│   └── BinarySearchTree.java
+├── DynamicProgramming/
+│   └── DynamicProgramming.java
 ├── FenwickTree/
 │   └── FenwickTree.java
 ├── Graph/
@@ -36,15 +40,52 @@ InterviewPrep/
 │   ├── HrQuestions.md
 │   ├── Interview_Preparation_Responses.docx
 │   └── Interview_Preparation_Responses.md
+├── LinkedList/
+│   └── LinkedList.java
+├── Queue/
+│   └── Queue.java
 ├── SegmentTree/
 │   ├── Lazy_ST.java
 │   └── SegmentTree.java
+├── Sorting/
+│   └── SortingAlgorithms.java
+├── Stack/
+│   └── Stack.java
 └── Trie/
     ├── Name_Phone.java
     └── Trie.java
 ```
 
 ## 🔧 Data Structures Implemented
+
+### 🔗 **Linear Data Structures**
+
+#### **LinkedList**
+- **`LinkedList.java`** - Comprehensive singly and doubly linked list implementation
+  - Singly LinkedList with head/tail pointers
+  - Doubly LinkedList with bidirectional traversal
+  - All basic operations: insert, delete, search, traverse
+  - Interview problems: cycle detection, middle element, nth from end
+  - **Time Complexity**: Insert/Delete O(1) at head/tail, O(n) at position
+  - **Space Complexity**: O(n)
+
+#### **Stack**
+- **`Stack.java`** - Array-based and LinkedList-based stack implementations
+  - LIFO (Last In, First Out) operations
+  - Applications: balanced parentheses, postfix evaluation, infix to postfix
+  - Next greater element problem
+  - **Time Complexity**: All operations O(1)
+  - **Space Complexity**: O(n)
+
+#### **Queue**
+- **`Queue.java`** - Multiple queue implementations
+  - Array-based circular queue
+  - LinkedList-based queue
+  - Deque (double-ended queue)
+  - Priority Queue using heap
+  - Applications: binary number generation, first non-repeating character
+  - **Time Complexity**: All basic operations O(1)
+  - **Space Complexity**: O(n)
 
 ### 🌟 **Heap Data Structure**
 - **`MaxHeap.java`** - Complete binary heap implementation
