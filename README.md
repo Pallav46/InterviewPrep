@@ -16,6 +16,8 @@ This repository contains well-documented, interview-ready implementations of ess
 ```
 InterviewPrep/
 ├── README.md
+├── AVLTree/
+│   └── AVLTree.java
 ├── FenwickTree/
 │   └── FenwickTree.java
 ├── Graph/
@@ -66,6 +68,15 @@ InterviewPrep/
   - **Time Complexity**: O(1) average, O(n) worst case
 
 ### 🌳 **Tree Data Structures**
+
+#### **AVL Tree (Self-Balancing BST)**
+- **`AVLTree.java`** - Height-balanced binary search tree
+  - All operations guaranteed O(log n) time complexity
+  - Automatic balancing through rotations (LL, RR, LR, RL)
+  - Insert, delete, search with balance maintenance
+  - Complete traversal methods and tree visualization
+  - **Time Complexity**: O(log n) for all operations
+  - **Space Complexity**: O(n)
 
 #### **Fenwick Tree (Binary Indexed Tree)**
 - **`FenwickTree.java`** - Efficient range sum queries
@@ -127,6 +138,11 @@ InterviewPrep/
    cd HashMap
    javac MyHashMap.java
    java MyHashMap
+   
+   # Example: Running AVL Tree
+   cd AVLTree
+   javac AVLTree.java
+   java AVLTree
    ```
 
 3. **Test with your own data**:
@@ -140,6 +156,7 @@ InterviewPrep/
 |---------------|------------------|----------------|
 | **Heap** | Kth largest element, Priority Queue, Heap Sort | `MaxHeap.java`, `HeapSort.java` |
 | **HashMap** | Design HashMap, Handle collisions, Load factor | `MyHashMap.java` |
+| **AVL Tree** | Self-balancing trees, Rotations, Height balance | `AVLTree.java` |
 | **Graph** | Shortest path, MST, Connected components | `Dijkstra.java`, `Prim.java`, `DisjointSet.java` |
 | **Tree** | Range queries, Prefix search, Tree traversal | `SegmentTree.java`, `Trie.java`, `FenwickTree.java` |
 
@@ -163,12 +180,12 @@ InterviewPrep/
 
 ### Time Complexities Quick Reference
 
-| Operation | Heap | HashMap | Segment Tree | Trie | Graph (Dijkstra) |
-|-----------|------|---------|--------------|------|-------------------|
-| **Insert** | O(log n) | O(1) avg | O(log n) | O(m) | - |
-| **Search** | O(n) | O(1) avg | O(log n) | O(m) | O((V+E) log V) |
-| **Delete** | O(log n) | O(1) avg | O(log n) | O(m) | - |
-| **Update** | O(log n) | O(1) avg | O(log n) | - | - |
+| Operation | Heap | HashMap | AVL Tree | Segment Tree | Trie | Graph (Dijkstra) |
+|-----------|------|---------|----------|--------------|------|-------------------|
+| **Insert** | O(log n) | O(1) avg | O(log n) | O(log n) | O(m) | - |
+| **Search** | O(n) | O(1) avg | O(log n) | O(log n) | O(m) | O((V+E) log V) |
+| **Delete** | O(log n) | O(1) avg | O(log n) | O(log n) | O(m) | - |
+| **Update** | O(log n) | O(1) avg | O(log n) | O(log n) | - | - |
 
 *where n = number of elements, m = string length, V = vertices, E = edges*
 
